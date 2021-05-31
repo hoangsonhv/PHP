@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link type="text/css" s href="css/labs1.css">
+    <style type="text/css">
+        .abc{
+
+            border: 1px solid burlywood;
+            border-radius: 4px;
+            box-shadow: 5px 5px 5px #afafaf;
+            background-color: whitesmoke;
+            text-align: center;
+        }
+        .abc table thead tr th{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -31,8 +43,9 @@
             "tenncc"=>"Apple"
         ];
     ?>
-    <div class="container">
-    <table class="table abc">
+    <div class="container abc">
+        <h1>Danh Sách Sản Phẩm</h1>
+        <table class="table table-bordered ">
         <thead>
             <tr>
                 <th>Tên SP</th>
