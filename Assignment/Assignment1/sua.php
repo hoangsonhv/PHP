@@ -13,34 +13,36 @@
 </head>
 <body>
     <?php
-    $sanpham = [];
-    $sanpham[] = [
-        "tensp"=>"Máy tính bảng",
-        "gia"=>"12500000",
-        "mota"=>"Day la san pham dau tien",
-        "tenncc"=>"Apple"
-    ];
-    $sanpham[] = [
-        "tensp"=>"Máy Giặt",
-        "gia"=>"15000000",
-        "mota"=>"Sịn sò nhất Đông Nam Á",
-        "tenncc"=>"SamSung"
-    ];
-    $sanpham[] = [
-        "tensp"=>"Dép lào",
-        "gia"=>"20000",
-        "mota"=>"Hãng sản xuất dép chính hãng tại Việt Nam",
-        "tenncc"=>"Apple"
-    ];
+        $id = $_GET['id'];
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $db = "trenlop";
+
+        $conn = new mysqli($servername,$username,$password,$db);
+
+        if ($conn->connect_errno){
+            die("Connect error..");
+        }
+        $sql_txt = "select * from sanpham where id = $id";
+        $rs = $conn->query($sql_txt);
+        $sp = null;
+        if($rs->num_rows>0){
+            while($row = $rs->fetch_assoc()){
+                $sp = $row;
+                break;
+            }
+        }
+        if($sp == null) header("location: danhsach.php");
     ?>
     <div id="Header">
         <div class="header-main sticky-top" id="header-main">
             <div class="bbb">
                 <div class="Navbar-header">
                     <ul class=" navbar-nav">
-                        <li class="active"><a class="nav-link dropdown-toggle active">Danh Sách SP</a></li>
+                        <li class="active"><a href="danhsach.php" class="nav-link dropdown-toggle active">Danh Sách SP</a></li>
                         <li><a href="themmoi.php" class="nav-link dropdown-toggle active">Thêm SP</a></li>
-                        <li><a href="#" class="nav-link dropdown-toggle active">Sửa SP</a></li>
+                        <li><a class="nav-link dropdown-toggle active">Sửa SP</a></li>
                         <li><a href="#" class="nav-link dropdown-toggle active">Danh Sách Category</a></li>
                         <li><a href="#" class="nav-link dropdown-toggle active">Thêm Category</a></li>
                         <li><a href="#" class="nav-link dropdown-toggle active">Sửa Category</a></li>
@@ -50,55 +52,33 @@
         </div>
     </div>
     <div id="Main">
-        <div class="container abc " style="margin-top: 50px">
-            <h1>Danh Sách Sản Phẩm</h1>
-            <table class="table table-bordered ">
-                <thead>
-                <tr>
-                    <th>Tên SP</th>
-                    <th>Giá</th>
-                    <th>Mô tả</th>
-                    <th>Tên NCC</th>
-                    <th>Phụ</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($sanpham as $sp){ ?>
-                    <tr>
-                        <td><?php echo $sp["tensp"]; ?></td>
-                        <td><?php echo $sp["gia"]; ?></td>
-                        <td><?php echo $sp["mota"]; ?></td>
-                        <td><?php echo $sp["tenncc"]; ?></td>
-                        <td><?php echo "<a href='#'>Sửa</a>"; ?></td>
-                    </tr>
-                <?php } ?>
-                </tbody>
-            </table>
-        </div>
         <div id="Main-content">
             <div class="main-form">
                 <div class="row aaa">
                     <div class="forms" style="margin-top: -50px">
                         <h1>Sửa sản phẩm</h1>
-                        <div class="forms-1">
-                            <div class="form-group form1">
-                                <label for="name">Tên SP:</label>
-                                <input type="text" class="ipf" id="name" placeholder="Tên Sản phẩm.." name="name">
-                            </div>
-                            <div class="form-group form1">
-                                <label for="class">Giá:</label>
-                                <input type="text" class="ipf" id="class" placeholder="Giá.." name="gia">
-                            </div>
-                            <div class="form-group form1">
-                                <label for="address">Mô tả:</label>
-                                <input type="text" class="ipf" id="address" placeholder="Mô tả.." name="mota">
-                            </div>
-                            <div class="form-group form1">
-                                <label>Tên NCC:</label>
-                                <input type="text" class="ipf" id="number"  placeholder="Tên nhà cung cấp.." name="namencc">
-                            </div>
-                            <button type="submit" name="dangky">Cập nhật</button>
-                        </div>
+                       <form action="capnhat.php" method="POST">
+                           <div class="forms-1">
+                               <input type="hidden" name="id" value="<?php echo $sp["id"];?>"/>
+                               <div class="form-group form1">
+                                   <label for="name">Tên SP:</label>
+                                   <input type="text" class="ipf" id="name" value="<?php echo $sp["ten"];?>" placeholder="Tên Sản phẩm.." name="ten">
+                               </div>
+                               <div class="form-group form1">
+                                   <label for="class">Giá:</label>
+                                   <input type="text" class="ipf" id="class" value="<?php echo $sp["gia"];?>" placeholder="Giá.." name="gia">
+                               </div>
+                               <div class="form-group form1">
+                                   <label for="address">Mô tả:</label>
+                                   <input type="text" class="ipf" id="address" value="<?php echo $sp["mota"];?>" placeholder="Mô tả.." name="mota">
+                               </div>
+                               <div class="form-group form1">
+                                   <label>Tên NCC:</label>
+                                   <input type="text" class="ipf" id="number" value="<?php echo $sp["tenncc"];?>" placeholder="Tên nhà cung cấp.." name="tenncc">
+                               </div>
+                               <button type="submit" name="dangky">Cập nhật</button>
+                           </div>
+                       </form>
                     </div>
                 </div>
             </div>

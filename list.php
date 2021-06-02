@@ -10,22 +10,34 @@
 <body>
     <h1>Danh sách sinh viên</h1>
     <?php
-        $dshocsinh = [];
-        $dshocsinh[] = [
-            "name"=>"Hoang van son",
-            "age"=>"24"
-        ];
-        $dshocsinh[] = [
-            "name"=>"Đào minh giang",
-            "age"=>"24"
-        ];
-//        $dshocsinh[] = "trương quang huy";
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $db = "trenlop";
+
+        $conn = new mysqli($servername,$username,$password,$db);
+
+        if ($conn->connect_errno){
+            die("Connect error..");
+        }
+//        echo "Connect success..";
+        // lay data tu dtb
+
+        $sql_txt = "select * from sinhvien";
+        $rs = $conn->query($sql_txt);
+        $dssinhvien = [];
+        if ($rs->num_rows>0){
+            while ($row = $rs->fetch_assoc()){
+                $dssinhvien[] = $row;
+            }
+        }
     ?>
+    <a href="themsinhvien.php">Thêm sinh viên</a>
     <ul>
-    <?php foreach ($dshocsinh as $hs){ ?>
-        <li><?php echo $hs["name"]."--".$hs["age"]; ?></li>
-    <?php } ?>
+        <?php foreach($dssinhvien as $sv){ ?>
+            <li><a href="chitietsinhvien.php?id=<?php echo $sv["id"];?>"><?php echo $sv["name"]."--".$sv["age"];?></a>
+                <a href="edit.php?id=<?php echo $sv["id"];?>">Sửa</a><a href="delete.php?id=<?php echo $sv["id"];?>">Xóa</a></li>
+        <?php } ?>
     </ul>
-    <a href="index.php">quay vè index</a>
 </body>
 </html>

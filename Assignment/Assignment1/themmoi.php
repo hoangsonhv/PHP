@@ -31,29 +31,31 @@
     <div class="main-form">
         <div class="row aaa">
             <div class="form">
-                <h1>Đăng Ký</h1>
+                <h1>Thêm</h1>
             </div>
             <div class="forms">
-                <h1>Phiếu đăng ký</h1>
-                <div class="forms-1">
-                    <div class="form-group form1">
-                        <label for="name">Tên SP:</label>
-                        <input type="text" class="ipf" id="name" placeholder="Tên sản phẩm.." name="name">
+                <h1>Thêm Sản Phẩm</h1>
+                <form action="save.php" method="POST">
+                    <div class="forms-1">
+                        <div class="form-group form1">
+                            <label>Tên SP:</label>
+                            <input type="text" class="ipf" id="name" placeholder="Tên sản phẩm.." name="ten">
+                        </div>
+                        <div class="form-group form1">
+                            <label for="class">Giá:</label>
+                            <input type="text" class="ipf" id="class" placeholder="Giá.." name="gia">
+                        </div>
+                        <div class="form-group form1">
+                            <label for="address">Mô tả:</label>
+                            <input type="text" class="ipf" id="address" placeholder="Mô tả.." name="mota">
+                        </div>
+                        <div class="form-group form1">
+                            <label>Tên NCC:</label>
+                            <input type="text" class="ipf" id="number"  placeholder="Tên nhà cung cấp.." name="tenncc">
+                        </div>
+                        <button type="submit" name="dangky">Đăng Ký</button>
                     </div>
-                    <div class="form-group form1">
-                        <label for="class">Giá:</label>
-                        <input type="text" class="ipf" id="class" placeholder="Giá.." name="gia">
-                    </div>
-                    <div class="form-group form1">
-                        <label for="address">Mô tả:</label>
-                        <input type="text" class="ipf" id="address" placeholder="Mô tả.." name="mota">
-                    </div>
-                    <div class="form-group form1">
-                        <label>Tên NCC:</label>
-                        <input type="text" class="ipf" id="number"  placeholder="Tên nhà cung cấp.." name="namencc">
-                    </div>
-                    <button type="submit" name="dangky">Đăng Ký</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>

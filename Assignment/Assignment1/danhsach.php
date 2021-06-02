@@ -12,27 +12,26 @@
     <link rel="stylesheet" href="style/style.php" media="screen">
 </head>
 <body>
-<?php
-$sanpham = [];
-$sanpham[] = [
-    "tensp"=>"Máy tính bảng",
-    "gia"=>"12500000",
-    "mota"=>"Day la san pham dau tien",
-    "tenncc"=>"Apple"
-];
-$sanpham[] = [
-    "tensp"=>"Máy Giặt",
-    "gia"=>"15000000",
-    "mota"=>"Sịn sò nhất Đông Nam Á",
-    "tenncc"=>"SamSung"
-];
-$sanpham[] = [
-    "tensp"=>"Dép lào",
-    "gia"=>"20000",
-    "mota"=>"Hãng sản xuất dép chính hãng tại Việt Nam",
-    "tenncc"=>"Apple"
-];
-?>
+    <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $db = "trenlop";
+
+        $conn = new mysqli($servername,$username,$password,$db);
+
+        if ($conn->connect_errno){
+            die("Connect error..");
+        }
+        $sql_txt = "select * from sanpham";
+        $rs = $conn->query($sql_txt);
+        $dssp = [];
+        if ($rs->num_rows>0){
+            while ($row = $rs->fetch_assoc()){
+                $dssp[] = $row;
+            }
+        }
+    ?>
 <div id="Header">
     <div class="header-main sticky-top" id="header-main">
         <div class="bbb">
@@ -40,7 +39,7 @@ $sanpham[] = [
                 <ul class=" navbar-nav">
                     <li class="active"><a class="nav-link dropdown-toggle active">Danh Sách SP</a></li>
                     <li><a href="themmoi.php" class="nav-link dropdown-toggle active">Thêm SP</a></li>
-                    <li><a href="#" class="nav-link dropdown-toggle active">Sửa SP</a></li>
+                    <li><a href="sua.php" class="nav-link dropdown-toggle active">Sửa SP</a></li>
                     <li><a href="#" class="nav-link dropdown-toggle active">Danh Sách Category</a></li>
                     <li><a href="#" class="nav-link dropdown-toggle active">Thêm Category</a></li>
                     <li><a href="#" class="nav-link dropdown-toggle active">Sửa Category</a></li>
@@ -59,15 +58,19 @@ $sanpham[] = [
                 <th>Giá</th>
                 <th>Mô tả</th>
                 <th>Tên NCC</th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($sanpham as $sp){ ?>
+            <?php foreach ($dssp as $sp){ ?>
                 <tr>
-                    <td><?php echo $sp["tensp"]; ?></td>
+                    <td><?php echo $sp["ten"]; ?></td>
                     <td><?php echo $sp["gia"]; ?></td>
                     <td><?php echo $sp["mota"]; ?></td>
                     <td><?php echo $sp["tenncc"]; ?></td>
+                    <td><a href="xoa.php?id=<?php echo $sp["id"];?>">Xóa</a></td>
+                    <td><a href="sua.php?id=<?php echo $sp["id"];?>">Sửa</a></td>
                 </tr>
             <?php } ?>
             </tbody>
