@@ -21,43 +21,7 @@ $border = '1px solid';
 .abc table thead tr th{
     text-align: center;
 }
-#Header{
-     height: 70px;
-}
-.header-main{
-    padding: 5px;
-    height: 70px;
-    z-index: 1000;
-    background-color: #446afd;
-    width: 100%;
-    position: fixed;
-    display: block;
-    transition: top 0.5s;
-}
-.sticky-top{
-    left: 0;
-}
-.header-main .nav-nav{
-    height: 80px;
-}
-.Navbar-header ul{
-    margin-top: 16px;
-    padding-left: 0;
-}
-.Navbar-header ul li{
-    list-style: none;
-    font-size: 20px;
-    font-weight: 600;
-    margin-right: 56px;
-}
-.Navbar-header ul li a{
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-}
-.Navbar-header li a:hover{
-    color: #66ff00;
-}
+
 
 /* Search*/
 .form-search{
@@ -116,7 +80,7 @@ form.example::after {
 
 }
 .main-form{
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 100px;
     height: 725px;
 }

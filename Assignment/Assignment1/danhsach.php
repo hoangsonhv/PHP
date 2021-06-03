@@ -32,25 +32,10 @@
             }
         }
     ?>
-<div id="Header">
-    <div class="header-main sticky-top" id="header-main">
-        <div class="bbb">
-            <div class="Navbar-header">
-                <ul class=" navbar-nav">
-                    <li class="active"><a class="nav-link dropdown-toggle active">Danh Sách SP</a></li>
-                    <li><a href="themmoi.php" class="nav-link dropdown-toggle active">Thêm SP</a></li>
-                    <li><a href="sua.php" class="nav-link dropdown-toggle active">Sửa SP</a></li>
-                    <li><a href="#" class="nav-link dropdown-toggle active">Danh Sách Category</a></li>
-                    <li><a href="#" class="nav-link dropdown-toggle active">Thêm Category</a></li>
-                    <li><a href="#" class="nav-link dropdown-toggle active">Sửa Category</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="Main">
     <div class="container abc " style="margin-top: 50px">
         <h1>Danh Sách Sản Phẩm</h1>
+
         <table class="table table-bordered ">
             <thead>
             <tr>
@@ -63,18 +48,19 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($dssp as $sp){ ?>
-                <tr>
-                    <td><?php echo $sp["ten"]; ?></td>
-                    <td><?php echo $sp["gia"]; ?></td>
-                    <td><?php echo $sp["mota"]; ?></td>
-                    <td><?php echo $sp["tenncc"]; ?></td>
-                    <td><a href="xoa.php?id=<?php echo $sp["id"];?>">Xóa</a></td>
-                    <td><a href="sua.php?id=<?php echo $sp["id"];?>">Sửa</a></td>
-                </tr>
-            <?php } ?>
+                <?php foreach ($dssp as $sp){ ?>
+                    <tr>
+                        <td><?php echo $sp["ten"]; ?></td>
+                        <td><?php echo $sp["gia"]; ?></td>
+                        <td><?php echo $sp["mota"]; ?></td>
+                        <td><?php echo $sp["tenncc"]; ?></td>
+                        <td><a href="xoa.php?id=<?php echo $sp["id"];?>">Xóa</a></td>
+                        <td><a href="sua.php?id=<?php echo $sp["id"];?>">Sửa</a></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
+        <button style="margin-bottom: 20px;width: 100px;height: 30px;font-size: 17px"><a href="themmoi.php" style="text-decoration: none">Thêm</a></button>
     </div>
 </div>
 </body>

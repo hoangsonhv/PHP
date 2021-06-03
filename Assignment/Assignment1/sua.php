@@ -35,22 +35,6 @@
         }
         if($sp == null) header("location: danhsach.php");
     ?>
-    <div id="Header">
-        <div class="header-main sticky-top" id="header-main">
-            <div class="bbb">
-                <div class="Navbar-header">
-                    <ul class=" navbar-nav">
-                        <li class="active"><a href="danhsach.php" class="nav-link dropdown-toggle active">Danh Sách SP</a></li>
-                        <li><a href="themmoi.php" class="nav-link dropdown-toggle active">Thêm SP</a></li>
-                        <li><a class="nav-link dropdown-toggle active">Sửa SP</a></li>
-                        <li><a href="#" class="nav-link dropdown-toggle active">Danh Sách Category</a></li>
-                        <li><a href="#" class="nav-link dropdown-toggle active">Thêm Category</a></li>
-                        <li><a href="#" class="nav-link dropdown-toggle active">Sửa Category</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="Main">
         <div id="Main-content">
             <div class="main-form">

@@ -18,27 +18,19 @@
                 <h1>Thêm</h1>
             </div>
             <div class="forms">
-                <h1>Thêm Sản Phẩm</h1>
-                <form action="save.php" method="POST">
+                <h1>Thêm Loại Sản Phẩm</h1>
+                <form action="save1.php" method="POST">
                     <div class="forms-1">
                         <div class="form-group form1">
                             <label>Tên SP:</label>
-                            <input type="text" class="ipf" id="name" placeholder="Tên sản phẩm.." name="ten" required>
+                            <input type="text" class="ipf" id="name" placeholder="Tên Loại sản phẩm.." name="tenloai" required>
                         </div>
                         <div class="form-group form1">
                             <label for="class">Giá:</label>
-                            <input type="text" class="ipf" id="class" placeholder="Giá.." name="gia" required>
+                            <input type="text" class="ipf" id="class" placeholder="Số lượng.." name="soluong" required>
                         </div>
-                        <div class="form-group form1">
-                            <label for="address">Mô tả:</label>
-                            <input type="text" class="ipf" id="address" placeholder="Mô tả.." name="mota" required>
-                        </div>
-                        <div class="form-group form1">
-                            <label>Tên NCC:</label>
-                            <input type="text" class="ipf" id="number"  placeholder="Tên nhà cung cấp.." name="tenncc" required>
-                        </div>
-                        <button type="submit" name="dangky">Đăng Ký</button>
-                        <a href="danhsach.php">Danh sách</a>
+                        <button type="submit">Thêm</button>
+                        <a href="dsloaisanpham.php">Danh sách</a>
                     </div>
                 </form>
             </div>
