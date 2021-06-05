@@ -136,11 +136,27 @@ margin-top: -10px;
     color: white;
     width: 140px;
     background-color: red;
-    margin-left: 44%;
+    margin-left: 40%;
     font-size: 18px;
     height: 50px;
     border-radius: 4px;
     outline: none;
     border: none;
     margin-top: 40px;
+}
+.gh{
+padding: 0;
+background-color: whitesmoke;
+border-radius: 4px;
+margin-top: 50px;
+
+}
+.gh h1{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+.col-right{
+    background-color: white;
+    width: 570px;
 }

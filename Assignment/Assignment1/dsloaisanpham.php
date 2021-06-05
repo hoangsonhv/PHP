@@ -1,37 +1,22 @@
+<?php include_once "database.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Danh Sách Sản Phẩm</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.php" media="screen">
-</head>
+<?php include "html/head.php" ;?>
 <body>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "trenlop";
-
-$conn = new mysqli($servername,$username,$password,$db);
-
-if ($conn->connect_errno){
-    die("Connect error..");
-}
-$sql_txt = "select * from loaisanpham";
-$rs = $conn->query($sql_txt);
-$dssp = [];
-if ($rs->num_rows>0){
-    while ($row = $rs->fetch_assoc()){
-        $dssp[] = $row;
-    }
-}
-?>
+    <?php
+    $sql_txt = "select * from loaisanpham";
+    $dssp = queryDB($sql_txt);
+    ?>
+    <div class="container" style="padding: 0;margin-top: 1px">
+        <ul class="nav nav-pills nav-justified">
+            <li style="font-size: 16px"><a href="danhsach.php">Danh Sách Sản Phẩm</a></li>
+            <li style="font-size: 16px"><a href="themmoi.php">Thêm Sản Phẩm</a></li>
+            <li class="active" style="font-size: 16px"><a>DS Loại Sản Phẩm</a></li>
+            <li style="font-size: 16px"><a href="themlsp.php">Thêm Loại Sản Phẩm</a></li>
+            <li style="font-size: 16px"><a href="giohang.php">Giỏ hàng</a></li>
+            <li style="font-size: 16px"><a href="thanhtoan.php">Thanh Toán</a></li>
+        </ul>
+    </div>
 <div id="Main">
     <div class="container abc " style="margin-top: 50px">
         <h1>Danh Sách Loại Sản Phẩm</h1>
@@ -55,7 +40,6 @@ if ($rs->num_rows>0){
             <?php } ?>
             </tbody>
         </table>
-        <button style="margin-bottom: 20px;width: 100px;height: 30px;font-size: 17px"><a href="themlsp.php" style="text-decoration: none">Thêm</a></button>
     </div>
 </div>
 </body>

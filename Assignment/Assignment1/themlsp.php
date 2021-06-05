@@ -1,22 +1,21 @@
+
 <!doctype html>
 <html lang="en">
-<head>
-    <title>Thêm Sản Phẩm</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.php" media="screen">
-</head>
+<?php include "html/head.php" ;?>
 <body>
+<div class="container" style="padding: 0;margin-top: 1px">
+    <ul class="nav nav-pills nav-justified">
+        <li  style="font-size: 16px"><a href="danhsach.php">Danh Sách Sản Phẩm</a></li>
+        <li  style="font-size: 16px"><a href="themmoi.php">Thêm Sản Phẩm</a></li>
+        <li style="font-size: 16px"><a href="dsloaisanpham.php">DS Loại Sản Phẩm</a></li>
+        <li class="active" style="font-size: 16px"><a>Thêm Loại Sản Phẩm</a></li>
+        <li style="font-size: 16px"><a href="giohang.php">Giỏ hàng</a></li>
+        <li style="font-size: 16px"><a href="thanhtoan.php">Thanh Toán</a></li>
+    </ul>
+</div>
 <Main id="Main">
     <div class="main-form">
         <div class="row aaa">
-            <div class="form">
-                <h1>Thêm</h1>
-            </div>
             <div class="forms">
                 <h1>Thêm Loại Sản Phẩm</h1>
                 <form action="save1.php" method="POST">
@@ -30,7 +29,6 @@
                             <input type="text" class="ipf" id="class" placeholder="Số lượng.." name="soluong" required>
                         </div>
                         <button type="submit">Thêm</button>
-                        <a href="dsloaisanpham.php">Danh sách</a>
                     </div>
                 </form>
             </div>

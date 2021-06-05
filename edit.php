@@ -1,3 +1,4 @@
+<?php include_once "database.php"; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,28 +10,12 @@
 </head>
 <body>
 <?php
-$id = $_GET['id'];
-$servername = "localhost";
-$username = "root";
-$password = ""; // neu dung mamp password: root
-$db = "trenlop";
-// create connection
-$conn = new mysqli($servername,$username,$password,$db);
-// kiem tra ket noi
-if($conn->connect_error){
-    die("Connect error...");// die lam dung luong chuong trinh tai day
-}
-
-$sql_txt = "select * from sinhvien where id = $id";
-$rs = $conn->query($sql_txt);
-$sv = null;
-if($rs->num_rows>0){
-    while($row = $rs->fetch_assoc()){
-        $sv = $row;
-        break;
+    $id = $_GET['id'];
+    $dssv = queryDB("select * from sinhvien where id = $id");
+    if(count($dssv) == 0){
+        header("Location: list.php");
     }
-}
-if($sv == null) header("location: list.php");
+    $sv = $dssv[0];
 ?>
 <form action="capnhat.php"  method="POST">
     <input type="hidden" name="id" value="<?php echo $sv["id"];?>"/>

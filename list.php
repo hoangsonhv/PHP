@@ -1,3 +1,4 @@
+<?php include_once "database.php"; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,27 +11,9 @@
 <body>
     <h1>Danh sách sinh viên</h1>
     <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $db = "trenlop";
-
-        $conn = new mysqli($servername,$username,$password,$db);
-
-        if ($conn->connect_errno){
-            die("Connect error..");
-        }
-//        echo "Connect success..";
-        // lay data tu dtb
-
         $sql_txt = "select * from sinhvien";
-        $rs = $conn->query($sql_txt);
-        $dssinhvien = [];
-        if ($rs->num_rows>0){
-            while ($row = $rs->fetch_assoc()){
-                $dssinhvien[] = $row;
-            }
-        }
+        $dssinhvien = queryDB($sql_txt);
+
     ?>
     <a href="themsinhvien.php">Thêm sinh viên</a>
     <ul>
