@@ -145,11 +145,14 @@ margin-top: -10px;
     margin-top: 40px;
 }
 .gh{
-padding: 0;
-background-color: whitesmoke;
-border-radius: 4px;
-margin-top: 50px;
+    padding: 0;
+    background-color:#F5F5F5;
+    border-radius: 4px;
+    margin-top: 50px;
 
+}
+.sp{
+    margin-bottom: 20px;
 }
 .gh h1{
     text-align: center;
@@ -158,5 +161,6 @@ margin-top: 50px;
 }
 .col-right{
     background-color: white;
-    width: 570px;
+    width: 555px;
+    padding: 15px;
 }

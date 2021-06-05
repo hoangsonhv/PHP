@@ -16,13 +16,14 @@
     </ul>
 </div>
     <div class="container gh">
-        <h1>Thanh toán hóa đơn</h1>
-        <div class="col-md-6">
-            <form class="form-horizontal" action="save2.php" method="POST">
+        <form class="form-horizontal" action="save2.php" method="POST">
+            <h1>Thanh toán hóa đơn</h1>
+            <div class="col-md-6">
+
                 <div class="form-group">
-                    <label class="control-label col-sm-2" for="email">Họ Tên:</label>
+                    <label class="control-label col-sm-2" >Họ Tên:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" placeholder="Họ Tên.." name="ten">
+                        <input type="text" class="form-control" placeholder="Họ Tên.." name="tenkh">
                     </div>
                 </div>
                 <div class="form-group">
@@ -52,19 +53,29 @@
                         <input type="text" class="form-control"  placeholder="Địa Chỉ.." name="diachi">
                     </div>
                 </div>
-
-            </form>
-        </div>
-        <div class="col-md-6 col-right">
-            <?php foreach ($ds as $sp){ ?>
-                <div class="sp">
-                    <p>Tên SP: <?php echo $sp["ten"]; ?></p>
-                    <p>Giá: <?php echo $sp["gia"]; ?></p>
-                    <p>Hãng: <?php echo $sp["tenncc"]; ?></p>
+            </div>
+            <div class="col-md-6">
+               <div class="col-right">
+                   <?php foreach ($ds as $sp){ ?>
+                       <div class="sp">
+                           <p>Tên SP: <?php echo $sp["ten"]; ?></p>
+                           <p>Giá: <?php echo $sp["gia"]; ?></p>
+                           <p>Hãng: <?php echo $sp["tenncc"]; ?></p>
+                       </div>
+                   <?php } ?>
+                   <h3 style="margin-top: 40px">Tổng tiền: </h3>
+               </div>
+                <div class="col-bot" style="margin-top: 10px;background-color: white;margin-bottom: 20px;padding: 15px;">
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" checked>Thanh toán trực tiếp</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio">Thanh khi nhận hàng</label>
+                    </div>
                 </div>
-            <?php } ?>
-        </div>
-        <button type="submit" class="btn btn-default">Thanh Toán</button>
+                <button type="submit" class="btn btn-default" style="margin-bottom: 50px">Thanh Toán</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
