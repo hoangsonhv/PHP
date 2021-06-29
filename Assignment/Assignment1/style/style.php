@@ -156,7 +156,7 @@ margin-top: -10px;
 }
 .gh h1{
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
     margin-top: 40px;
 }
 .col-right{

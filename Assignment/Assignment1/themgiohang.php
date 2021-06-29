@@ -11,5 +11,6 @@ $sp = $ds[0];
 if(!in_array($sp,$giohang)){
     $giohang[] = $sp;
     $_SESSION["gh"] = $giohang;
+
 }
 header("Location: danhsach.php");

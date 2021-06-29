@@ -16,7 +16,7 @@ function connectDB(){
 function queryDB($sql_txt){
     $conn = connectDB();
     $list = [];
-    if ($conn !=null){
+    if ($conn != null){
         $rs = $conn->query($sql_txt);
         if ($rs->num_rows>0){
             while ($row = $rs->fetch_assoc()){
@@ -26,7 +26,6 @@ function queryDB($sql_txt){
     }
     return $list;
 }
-
 
 function insertOrUpdateDB($sql_txt){
     $conn = connectDB();

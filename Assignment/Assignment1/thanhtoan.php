@@ -5,6 +5,7 @@
 <?php include_once "session.php";?>
 <body>
 <?php  $ds = $_SESSION["gh"]; ?>
+
 <div class="container" style="padding: 0;margin-top: 1px">
     <ul class="nav nav-pills nav-justified">
         <li style="font-size: 16px"><a href="danhsach.php">Danh Sách Sản Phẩm</a></li>
@@ -55,16 +56,20 @@
                 </div>
             </div>
             <div class="col-md-6">
-               <div class="col-right">
+                <h2 style="margin-top: -50px;background-color: chartreuse;margin-bottom: 0;height: 50px;text-align: center;padding-top: 10px;border-bottom: none;">Đơn hàng của bạn</h2>
+                <div class="col-right">
+                   <?php $tong=0; ?>
                    <?php foreach ($ds as $sp){ ?>
                        <div class="sp">
                            <p>Tên SP: <?php echo $sp["ten"]; ?></p>
-                           <p>Giá: <?php echo $sp["gia"]; ?></p>
+                           <p>Giá: <?php echo $sp["gia"]; ?> đồng</p>
                            <p>Hãng: <?php echo $sp["tenncc"]; ?></p>
                        </div>
+                       <?php $tong += $sp['gia']; ?>
                    <?php } ?>
-                   <h3 style="margin-top: 40px">Tổng tiền: </h3>
-               </div>
+                   <h3 style="margin-top: 40px;" >Tổng tiền: <?php echo $tong; ?> đồng </h3>
+                </div>
+                <h2>Hình thức thanh toán</h2>
                 <div class="col-bot" style="margin-top: 10px;background-color: white;margin-bottom: 20px;padding: 15px;">
                     <div class="radio">
                         <label><input type="radio" name="optradio" checked>Thanh toán trực tiếp</label>
